@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UD2 · Sistema de Cableado Estructurado · Redes Locales</title>
+  <meta name="description" content="Sistema de cableado estructurado (SCE): características, niveles jerárquicos y elementos: canalizaciones, rosetas, racks, patch panels y etiquetado.">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.png" alt="Logo de Informática, IES San Alberto Magno" width="76" height="76">
+        <span class="brand-text">
+          <small>CFGM SMR · IES San Alberto Magno</small>
+          <strong>Redes Locales</strong>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ud2-elementos-lan.html">UD2 · Elementos de una LAN</a></li>
+          <li><a href="ud2-cableado-estructurado.html" aria-current="page">UD2 · Cableado estructurado</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="page-title">
+      <span class="eyebrow">UD2 · Parte 2</span>
+      <h1>Sistema de Cableado Estructurado</h1>
+      <p>Cómo se organiza la infraestructura de cableado de un edificio: normas, niveles jerárquicos y elementos que la componen.</p>
+    </div>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Índice de esta página">
+        <h2>En esta página</h2>
+        <ol>
+          <li><a href="#sce">¿Qué es un SCE?</a></li>
+          <li><a href="#niveles">Niveles jerárquicos</a>
+            <ol>
+              <li><a href="#puesto">Puesto de trabajo</a></li>
+              <li><a href="#distribuidor">Subsistema distribuidor</a></li>
+              <li><a href="#horizontal">Subsistema horizontal</a></li>
+              <li><a href="#vertical">Subsistema vertical</a></li>
+              <li><a href="#quien">¿Quién es quién?</a></li>
+            </ol>
+          </li>
+          <li><a href="#elementos">Elementos del SCE</a>
+            <ol>
+              <li><a href="#canalizaciones">Canalizaciones</a></li>
+              <li><a href="#rosetas">Rosetas y latiguillos</a></li>
+              <li><a href="#racks">Armarios o racks</a></li>
+              <li><a href="#enracado">Enracado de equipos</a></li>
+              <li><a href="#patch">Patch panels</a></li>
+              <li><a href="#etiquetado">Etiquetado</a></li>
+            </ol>
+          </li>
+        </ol>
+      </nav>
+
+      <main id="contenido" class="content">
+
+        <!-- ====================== 1. SCE ====================== -->
+        <section id="sce">
+          <h2><span class="num">1</span> Sistemas de cableado estructurado</h2>
+          <p>Las empresas necesitan <strong>interconectar</strong> sus equipos informáticos y dispositivos de comunicaciones, que pueden estar ubicados en varias salas y en varias plantas.</p>
+          <div class="fig-row">
+            <figure><img src="img/b-s02-2.jpg" alt="Fachada nocturna de un gran edificio de oficinas con las plantas iluminadas" width="900" height="600"></figure>
+            <figure><img src="img/b-s02-1.jpg" alt="Gran sala de oficina diáfana con muchos puestos de trabajo con ordenador" width="800" height="450"></figure>
+          </div>
+
+          <div class="definicion">
+            <span class="caja-titulo">Definición</span>
+            <p><strong>Sistema de cableado estructurado (SCE):</strong> infraestructura local de telecomunicaciones diseñada a partir de un conjunto de normas y/o estándares para garantizar su calidad, escalabilidad, modularidad, longevidad e independencia, tanto de los servicios que pueda albergar como de los fabricantes de componentes.</p>
+          </div>
+
+          <h3>Características principales</h3>
+          <div class="cards dos">
+            <div class="card"><h4>Flexible</h4><p>Permite identificar, reubicar, modificar y ampliar de forma racional.</p></div>
+            <div class="card verde"><h4>Eficiente</h4><p>Económico y optimiza el espacio físico.</p></div>
+            <div class="card"><h4>Abierto</h4><p>Independiente de los fabricantes (que cumplan los estándares para SCE).</p></div>
+            <div class="card verde"><h4>Longevo</h4><p>Pensado para durar <strong>10 años como mínimo</strong>.</p></div>
+          </div>
+          <div class="nota">
+            <span class="caja-titulo">Solución: modularidad</span>
+            <p>La red se segmenta en <strong>subsistemas de red independientes</strong> pero integrados en una organización jerarquizada por niveles.</p>
+          </div>
+        </section>
+        <p class="arriba"><a href="#contenido">↑ Volver arriba</a></p>
+
+        <!-- ====================== 2. NIVELES ====================== -->
+        <section id="niveles">
+          <h2><span class="num">2</span> Espacios y niveles jerárquicos del cableado estructurado</h2>
+          <div class="split">
+            <div>
+              <ol class="pasos">
+                <li><strong>Puesto de trabajo</strong> o área de trabajo.</li>
+                <li><strong>Subsistema distribuidor</strong> o cableado distribuidor o armario.</li>
+                <li><strong>Subsistema horizontal</strong> o cableado horizontal o de planta.</li>
+                <li><strong>Subsistema vertical</strong>, dorsal (<em>backbone</em>) o de edificio.</li>
+                <li><strong>Cuarto de telecomunicaciones</strong>, entrada de servicios y equipos.</li>
+              </ol>
+            </div>
+            <div class="fig-row duo" style="margin:0">
+              <figure><img src="img/b-s04-1.png" alt="Ilustración de un edificio de oficinas de varias plantas" width="700" height="881" style="max-height:260px"></figure>
+              <figure><img src="img/b-s04-2.png" alt="Plano de una planta con las divisiones de las oficinas" width="1024" height="658"></figure>
+            </div>
+          </div>
+
+          <h3 id="puesto">Áreas o puestos de trabajo</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Ubicación destinada al <strong>dispositivo final</strong> (PC, impresora, teléfono, etc.).</li>
+                <li>Normalmente tiene una o dos tomas de usuario (<strong>rosetas</strong>) que pueden conectar un dispositivo individual a la red.</li>
+                <li>Los dispositivos se conectan a las tomas de red por medio de <strong>latiguillos</strong> (<em>patch cords</em> o <em>patch cables</em>).</li>
+                <li>Normalmente se usa cable directo.</li>
+              </ul>
+              <div class="dato">
+                <span class="caja-titulo">Norma EIA/TIA</span>
+                <p>Longitud máxima del latiguillo: <strong>10 metros</strong>.</p>
+              </div>
+            </div>
+            <figure><img src="img/b-s05-1.jpg" alt="Esquema del subsistema de puesto de trabajo: rosetas RJ-11 y RJ-45 conectadas a teléfono y ordenador, con balun o adaptador para BNC" width="566" height="339"></figure>
+          </div>
+
+          <h3 id="distribuidor">Subsistema distribuidor</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Lugar donde se realizan las conexiones del sistema de cableado a los <strong>dispositivos de red</strong> (hub, switch, router…).</li>
+                <li>Formado por racks (armarios distribuidores o repartidores), enchufes, paneles de parcheo (<em>patch panels</em>), dispositivos de red, servidores, SAI (sistemas de alimentación ininterrumpida), etc.</li>
+                <li>Los dispositivos de red se conectan a los paneles de parcheo por medio de latiguillos.</li>
+              </ul>
+            </div>
+            <figure><img src="img/b-s06-1.jpg" alt="Armario de comunicaciones con paneles de parcheo y latiguillos azules" width="320" height="240"></figure>
+          </div>
+
+          <h3 id="horizontal">Subsistema horizontal o de planta</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Conecta los subsistemas distribuidores con las <strong>áreas de trabajo</strong>.</li>
+                <li>Cable desde el patch panel hasta la roseta o equipo.</li>
+                <li>Longitud máxima: <strong>90 metros</strong>.</li>
+              </ul>
+              <div class="dato">
+                <span class="caja-titulo">Los estándares EIA/TIA establecen</span>
+                <p>(latiguillo dispositivo de red – patch panel) <strong>+</strong> (latiguillo roseta – equipo final) <strong>&lt; 10 metros</strong></p>
+              </div>
+            </div>
+            <figure><img src="img/b-s07-1.png" alt="Ilustración isométrica del cableado horizontal que conecta una planta con sus puestos de trabajo" width="447" height="642" style="max-height:340px"></figure>
+          </div>
+
+          <h3 id="vertical">Subsistema vertical o backbone</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Conecta los <strong>subsistemas horizontales</strong>.</li>
+                <li>Soporta gran parte del tráfico procedente de diferentes áreas de trabajo.</li>
+                <li>Puede requerir medios de ancho de banda superior (<strong>fibra óptica</strong>).</li>
+              </ul>
+            </div>
+            <figure><img src="img/b-s08-1.png" alt="Esquema del backbone vertical que une los armarios de cada planta del edificio" width="959" height="719"></figure>
+          </div>
+
+          <h3 id="quien">¿Quién es quién?</h3>
+          <figure>
+            <img src="img/b-s09-1.png" alt="Corte de un edificio de tres plantas que muestra el cableado horizontal, el cableado vertical (backbone), las áreas de trabajo y la sala de equipos" width="538" height="369">
+            <figcaption>Identifica en el edificio cada uno de los subsistemas estudiados.</figcaption>
+          </figure>
+        </section>
+        <p class="arriba"><a href="#contenido">↑ Volver arriba</a></p>
+
+        <!-- ====================== 3. ELEMENTOS ====================== -->
+        <section id="elementos">
+          <h2><span class="num">3</span> Elementos del SCE</h2>
+
+          <h3 id="canalizaciones">Canalizaciones</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Conductos a través de los cuales se tienden los cables para que queden recogidos y protegidos convenientemente.</li>
+                <li>Los cables de <strong>datos</strong> y de <strong>fuerza</strong> (corriente eléctrica) suelen separarse para evitar interferencias.</li>
+                <li>Las canalizaciones por falsos suelos (suelo técnico) o techos aportan limpieza y estética.</li>
+              </ul>
+              <p><a href="https://www.youtube.com/watch?v=LA5jQEYnXzE" rel="noopener">▶ Vídeo sobre canalizaciones</a></p>
+            </div>
+            <figure><img src="img/b-s10-1.png" alt="Canalización de cables instalada en el techo de una oficina" width="756" height="533"></figure>
+          </div>
+
+          <h3 id="rosetas">Rosetas y latiguillos</h3>
+          <div class="cards">
+            <div class="card">
+              <h4>Rosetas</h4>
+              <ul>
+                <li>Pueden adoptar muchas formas.</li>
+                <li>Pueden ser para cable UTP (<strong>RJ-45</strong>), cable telefónico (<strong>RJ11</strong>), cable coaxial (<strong>BNC</strong>) o fibra óptica (<strong>ST</strong> o <strong>SC</strong>).</li>
+              </ul>
+            </div>
+            <div class="card verde">
+              <h4>Latiguillos</h4>
+              <ul>
+                <li>Cables que terminan en conectores (RJ45, RJ11, BNC, ST o SC).</li>
+                <li>Latiguillos UTP: <strong>directos</strong> o <strong>cruzados</strong>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 id="racks">Armarios de conexión o racks</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>En instalaciones medias o grandes, los equipos de comunicaciones se instalan en armarios especiales con dimensiones estandarizadas (<strong>19 pulgadas</strong>).</li>
+                <li>Permiten manipular fácilmente los cables y fijarlos adecuadamente.</li>
+              </ul>
+              <div class="dato">
+                <span class="caja-titulo">La unidad «U»</span>
+                <p>La altura se mide en <strong>U</strong>. 1 U = 1,75" = 3 agujeros para atornillar.</p>
+              </div>
+            </div>
+            <figure><img src="img/b-s12-1.jpg" alt="Armario rack de 19 pulgadas con equipos de comunicaciones" width="300" height="300"></figure>
+          </div>
+
+          <h3 id="enracado">Enracado de equipos</h3>
+          <p>Para colocar equipos enracados, que ocupan normalmente una unidad, es necesario colocar las <strong>tuercas enjauladas</strong> en los huecos apropiados para atornillar los equipos a la altura adecuada.</p>
+          <div class="fig-row">
+            <figure><img src="img/b-s13-1.png" alt="Tuerca enjaulada de metal" width="375" height="375"></figure>
+            <figure><img src="img/b-s13-2.png" alt="Tornillo y tuerca enjaulada fijados en el montante de un rack" width="241" height="241"></figure>
+            <figure><img src="img/b-s13-3.png" alt="Conjunto de tuercas enjauladas, tornillos y arandelas" width="375" height="282"></figure>
+          </div>
+
+          <h3 id="patch">Patch panels</h3>
+          <div class="definicion">
+            <span class="caja-titulo">Definición</span>
+            <p>Dispositivo de interconexión que permite conectar, a través de cables, otros dispositivos u otros patch panels.</p>
+          </div>
+          <p>Por un lado tiene las filas de pines donde se <strong>crimpan</strong> (punzonan) los cables y por el otro los <strong>conectores hembra</strong> donde se enchufan los latiguillos con los conectores macho.</p>
+          <figure><img src="img/b-s14-1.jpg" alt="Patch panel de 24 puertos con cables azules conectados por la parte trasera" width="1309" height="405" style="max-width:min(100%, 760px)"></figure>
+
+          <h3 id="etiquetado">Etiquetado</h3>
+          <ul>
+            <li>La norma <strong>EIA/TIA-606</strong> especifica que cada terminación de hardware debe tener alguna etiqueta que la identifique de manera exclusiva.</li>
+            <li>Un cable tiene dos terminadores; por tanto, cada uno de estos extremos recibirá un nombre.</li>
+            <li>Se etiquetan las rosetas y, a partir de estas etiquetas, las de los cables.</li>
+          </ul>
+        </section>
+
+        <nav class="pager" aria-label="Navegación entre unidades">
+          <a href="ud2-elementos-lan.html">← Anterior: Elementos de una LAN</a>
+          <a href="index.html">Inicio →</a>
+        </nav>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="f-brand">
+        <img src="img/logo.png" alt="" width="44" height="44">
+        <p><strong>Departamento de Informática</strong><br>IES San Alberto Magno</p>
+      </div>
+      <p>Redes Locales · CFGM SMR · Curso 2026-27</p>
+    </div>
+  </footer>
+</body>
+</html>

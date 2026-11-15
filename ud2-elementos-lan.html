@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UD2 · Elementos y espacios de una LAN · Redes Locales</title>
+  <meta name="description" content="Transmisión de datos, medios guiados y no guiados, fibra óptica y elementos de una LAN mixta.">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.png" alt="Logo de Informática, IES San Alberto Magno" width="76" height="76">
+        <span class="brand-text">
+          <small>CFGM SMR · IES San Alberto Magno</small>
+          <strong>Redes Locales</strong>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ud2-elementos-lan.html" aria-current="page">UD2 · Elementos de una LAN</a></li>
+          <li><a href="ud2-cableado-estructurado.html">UD2 · Cableado estructurado</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="page-title">
+      <span class="eyebrow">UD2 · Parte 1</span>
+      <h1>Elementos y espacios de una LAN</h1>
+      <p>Aspectos físicos de la transmisión, medios de transmisión guiados y no guiados, y los elementos de una red local mixta.</p>
+    </div>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Índice de esta página">
+        <h2>En esta página</h2>
+        <ol>
+          <li><a href="#transmision">Transmisión de datos</a>
+            <ol>
+              <li><a href="#senales">Señales y señalización</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#ancho-banda">Ancho de banda</a></li>
+              <li><a href="#velocidad">Velocidad de transmisión</a></li>
+            </ol>
+          </li>
+          <li><a href="#guiados">Medios guiados</a>
+            <ol>
+              <li><a href="#par-trenzado">Par trenzado</a></li>
+              <li><a href="#coaxial">Cable coaxial</a></li>
+              <li><a href="#fibra">Fibra óptica</a></li>
+              <li><a href="#fibra-clientes">Fibra para clientes</a></li>
+              <li><a href="#lan-mixta">Elementos LAN mixta</a></li>
+              <li><a href="#comparativa">Comparativa</a></li>
+            </ol>
+          </li>
+          <li><a href="#no-guiados">Medios no guiados</a>
+            <ol>
+              <li><a href="#tipos-tx">Tipos y propagación</a></li>
+              <li><a href="#bandas">Bandas de radiofrecuencia</a></li>
+              <li><a href="#tecnologias">Radio, microondas, IR y láser</a></li>
+              <li><a href="#apps-wifi">Apps para medir Wi-Fi</a></li>
+            </ol>
+          </li>
+        </ol>
+      </nav>
+
+      <main id="contenido" class="content">
+
+        <!-- ====================== 1. TRANSMISIÓN ====================== -->
+        <section id="transmision">
+          <h2><span class="num">1</span> Aspectos físicos básicos de la transmisión de datos</h2>
+
+          <h3 id="senales">Señales y señalización</h3>
+          <p>Para que el lenguaje digital de los ordenadores pueda transmitirse entre ellos usando un medio de transmisión, los datos binarios deben convertirse en <strong>señales</strong> que puedan viajar por él:</p>
+          <div class="cards">
+            <div class="card"><h4>Cables de cobre</h4><p>Señales <strong>eléctricas</strong>.</p></div>
+            <div class="card"><h4>Fibra óptica</h4><p>Señales <strong>luminosas</strong>.</p></div>
+            <div class="card"><h4>Aire</h4><p>Señales <strong>electromagnéticas</strong>.</p></div>
+          </div>
+          <div class="split">
+            <div>
+              <div class="definicion">
+                <span class="caja-titulo">Definición</span>
+                <p><strong>Señalización:</strong> proceso por el cual se convierten los datos de un emisor en señales que pueden viajar a través del medio.</p>
+              </div>
+              <p>En la fibra óptica, la señal luminosa se propaga de forma distinta según el tipo de fibra (monomodo, multimodo de índice escalonado o de índice gradual).</p>
+              <p><a href="https://www.youtube.com/watch?v=jZOg39v73c4" rel="noopener">▶ Vídeo sobre la transmisión por fibra óptica</a></p>
+            </div>
+            <figure>
+              <img src="img/a-s02-1.png" alt="Señal digital cuadrada que representa la secuencia de bits 1001110" width="485" height="309">
+              <figcaption>Los bits se convierten en una señal que viaja por el medio.</figcaption>
+            </figure>
+          </div>
+          <div class="fig-row">
+            <figure>
+              <img src="img/a-s03-1.png" alt="Propagación de la luz en fibra multimodo de salto de índice, multimodo de índice gradual y monomodo" width="619" height="440">
+              <figcaption>Propagación de la luz según el tipo de fibra.</figcaption>
+            </figure>
+            <figure>
+              <img src="img/a-s04-1.png" alt="Señales senoidales de distinta frecuencia usadas para componer una señal" width="478" height="424">
+              <figcaption>Señales senoidales de distinta frecuencia: dominio del tiempo y de la frecuencia.</figcaption>
+            </figure>
+          </div>
+
+          <h3 id="limitaciones">Limitaciones o perturbaciones en la transmisión</h3>
+
+          <h4>Atenuación</h4>
+          <div class="split wide">
+            <div>
+              <p>Disminución de la <strong>amplitud</strong> de la señal.</p>
+              <ul>
+                <li>Depende de la distancia recorrida y de la frecuencia.</li>
+                <li>Se expresa en <strong>decibelios (dB)</strong>. Los dB permiten reflejar números muy grandes y muy pequeños en un rango de valores menor.</li>
+                <li>Como se pierde señal, siempre son valores negativos.</li>
+              </ul>
+              <div class="tabla-scroll">
+                <table>
+                  <caption>Equivalencias habituales</caption>
+                  <thead><tr><th>Atenuación</th><th>La potencia…</th></tr></thead>
+                  <tbody>
+                    <tr><td>−3 dB</td><td>se reduce a la <strong>mitad</strong></td></tr>
+                    <tr><td>−10 dB</td><td>se reduce a la <strong>décima</strong> parte</td></tr>
+                    <tr><td>−20 dB</td><td>se reduce a la <strong>centésima</strong> parte</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <figure>
+              <img src="img/a-s05-1.png" alt="Gráfica de atenuación: la amplitud de la señal disminuye con la frecuencia y la distancia; se indican NEXT, ACR y atenuación" width="829" height="519">
+              <figcaption>Atenuación frente a frecuencia (ancho de banda).</figcaption>
+            </figure>
+          </div>
+
+          <p>La fórmula que relaciona la potencia de entrada y de salida con la pérdida en dB es:</p>
+          <div class="formula">Pérdida (dB) = 10 · log<sub>10</sub>( P<sub>final</sub> / P<sub>entrada</sub> )</div>
+          <div class="nota">
+            <span class="caja-titulo">Ejemplo con −3 dB</span>
+            <ol>
+              <li>−3 dB = 10 · log<sub>10</sub>(P<sub>final</sub> / P<sub>entrada</sub>)</li>
+              <li>−3 / 10 = log<sub>10</sub>(P<sub>final</sub> / P<sub>entrada</sub>) &nbsp;(la inversa del logaritmo es la exponencial)</li>
+              <li>10<sup>−0,3</sup> = P<sub>final</sub> / P<sub>entrada</sub> = 0,501187 → P<sub>final</sub> ≈ P<sub>entrada</sub> · 0,5</li>
+            </ol>
+            <p>La potencia final es la mitad de lo que era: se ha perdido un 50 %.</p>
+          </div>
+          <details class="actividad">
+            <summary>Actividad: ¿qué cable pierde más potencia?</summary>
+            <div class="actividad-cuerpo">
+              <p>Si un cable tiene un nivel de atenuación de <strong>13 dB</strong> para 100 metros y otro cable <strong>25 dB</strong> para la misma distancia, ¿en cuál de los dos cables se pierde más potencia?</p>
+              <details class="solucion">
+                <summary>Ver solución</summary>
+                <div>
+                  <figure>
+                    <img src="img/a-s07-1.jpg" alt="Resolución paso a paso del ejercicio de atenuación: el cable de 25 dB pierde más potencia" width="1200" height="655">
+                  </figure>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <h4>Interferencia electromagnética</h4>
+          <div class="split">
+            <div>
+              <p>Ondas electromagnéticas que interfieren en las generadas por los equipos emisores, <strong>distorsionando</strong> la señal a transmitir. Solo es aplicable a las comunicaciones basadas en señales electromagnéticas.</p>
+            </div>
+            <figure>
+              <img src="img/a-s08-2.png" alt="Esquema de ruido electromagnético que interfiere entre un transmisor y un receptor" width="641" height="292">
+            </figure>
+          </div>
+          <details class="actividad">
+            <summary>Actividad: hornos microondas y Wi-Fi</summary>
+            <div class="actividad-cuerpo"><p>Investiga por qué los hornos microondas pueden interferir en las redes Wi-Fi.</p></div>
+          </details>
+
+          <h4>Diafonía o crosstalk</h4>
+          <div class="split">
+            <div>
+              <p>Interferencia entre señales producida cuando los cables están <strong>muy juntos</strong>.</p>
+            </div>
+            <figure>
+              <img src="img/a-s08-1.png" alt="Dos cables paralelos cuyas señales se interfieren entre sí" width="562" height="260">
+            </figure>
+          </div>
+
+          <h4>Dispersión</h4>
+          <p>Variación gradual del ángulo de incidencia de un haz de luz (fibra) que provoca la pérdida de la señal luminosa. Cuando se inserta luz en una fibra, la onda de luz se <strong>ensancha</strong>. Si aumenta la longitud, las señales se pueden solapar demasiado y se producen errores.</p>
+          <div class="fig-row">
+            <figure><img src="img/a-s09-1.png" alt="Pulsos de luz que se ensanchan al recorrer 10 km de fibra" width="663" height="125"></figure>
+            <figure><img src="img/a-s09-2.png" alt="Pulsos de luz que se solapan tras recorrer 22 km de fibra" width="700" height="129"></figure>
+          </div>
+          <p><a href="https://www.monografias.com/trabajos108/transmision-fibra-optica/transmision-fibra-optica2.shtml" rel="noopener">Más información sobre la transmisión por fibra óptica (Monografías.com)</a></p>
+
+          <h3 id="ancho-banda">Ancho de banda</h3>
+          <dl class="glosario">
+            <dt>Espectro de frecuencias</dt>
+            <dd>Conjunto de frecuencias que constituyen una determinada señal.</dd>
+            <dt>Ancho de banda</dt>
+            <dd>Rango de frecuencias que un medio de transmisión permite transportar.</dd>
+          </dl>
+          <ul>
+            <li>Se calcula como la diferencia entre las frecuencias máxima y mínima que se pueden transmitir.</li>
+            <li>Se mide en <strong>hertzios</strong> (ciclos por segundo, unidad de frecuencia).</li>
+            <li><strong>Ancho de banda absoluto:</strong> anchura del espectro de frecuencias completo.</li>
+            <li><strong>Ancho de banda relativo:</strong> anchura del espectro donde se concentra la mayor parte de la energía.</li>
+          </ul>
+          <details class="actividad">
+            <summary>Actividad: anchos de banda de la voz y la telefonía</summary>
+            <div class="actividad-cuerpo">
+              <p>La voz humana contiene frecuencias entre los 100 Hz y los 10.000 Hz. ¿Cuál es el ancho de banda de la voz humana?</p>
+              <p>La telefonía tiene asignada la banda de 300 Hz a 3,4 kHz. ¿Cuál es el ancho de banda de la telefonía?</p>
+            </div>
+          </details>
+
+          <h3 id="velocidad">Velocidad de transmisión</h3>
+          <div class="split">
+            <div>
+              <ul>
+                <li>Número de <strong>bits por segundo</strong> que pueden viajar por un medio de transmisión.</li>
+                <li>Unidades: bps, kbps, Mbps, Gbps.</li>
+                <li>Las señales digitales cuadradas son un tren de pulsos enviados a través de un medio usando señales senoidales.</li>
+                <li>Cuantas más señales senoidales usamos, más precisión tiene el tren de pulsos enviado.</li>
+                <li>La duración del pulso determina la velocidad a la que conmuta la onda de uno a cero: menor duración implica que se puede transmitir más rápido.</li>
+              </ul>
+              <div class="dato">
+                <span class="caja-titulo">Recuerda</span>
+                <p>Cuanto <strong>mayor es el ancho de banda</strong>, mayor es la velocidad de transmisión que se puede alcanzar.</p>
+              </div>
+            </div>
+            <figure>
+              <img src="img/a-s11-1.png" alt="Trenes de pulsos digitales enviados con distinto número de armónicos y anchos de banda" width="354" height="429">
+              <figcaption>Imagen: María del Carmen Romero Ternero</figcaption>
+            </figure>
+          </div>
+        </section>
+        <p class="arriba"><a href="#contenido">↑ Volver arriba</a></p>
+
+        <!-- ====================== 2. MEDIOS GUIADOS ====================== -->
+        <section id="guiados">
+          <h2><span class="num">2</span> Medios de transmisión guiados</h2>
+
+          <h3 id="par-trenzado">Cables de par trenzado</h3>
+          <p>Formados por pares de cables de cobre <strong>trenzados</strong> para evitar interferencias entre ellos y recubiertos por plástico. Son sencillos de instalar y baratos.</p>
+          <div class="fig-row">
+            <figure><img src="img/a-s13-1.jpg" alt="Cable de par trenzado sin blindaje con cuatro pares" width="270" height="202"><figcaption>U/UTP</figcaption></figure>
+            <figure><img src="img/a-s13-2.jpg" alt="Cable de par trenzado con blindaje de lámina de aluminio" width="330" height="322"><figcaption>Con blindaje de lámina</figcaption></figure>
+            <figure><img src="img/a-s13-3.png" alt="Cable de par trenzado con cubierta gris abierta mostrando los pares" width="230" height="184"></figure>
+            <figure><img src="img/a-s13-4.jpg" alt="Cable de par trenzado apantallado de color morado" width="300" height="214"></figure>
+          </div>
+
+          <h4>Tipos según el blindaje</h4>
+          <div class="cards dos">
+            <div class="card">
+              <h4>U/UTP <small>(antiguo UTP)</small></h4>
+              <p>Par trenzado <strong>sin blindaje</strong>. No tiene ninguna protección metálica, ni exterior ni en los pares. Es el más económico, delgado y fácil de instalar; ideal para redes domésticas estándar.</p>
+            </div>
+            <div class="card">
+              <h4>F/UTP <small>(antiguo FTP)</small></h4>
+              <p>Par trenzado con <strong>blindaje global de lámina</strong>. Los pares internos no están protegidos individualmente, pero todo el conjunto exterior está envuelto en una lámina de aluminio para bloquear interferencias externas.</p>
+            </div>
+            <div class="card">
+              <h4>U/FTP <small>(antiguo STP general)</small></h4>
+              <p>Par trenzado con <strong>blindaje por par</strong>. No hay blindaje global exterior, pero cada par está envuelto en su propia lámina de aluminio. Es el estándar moderno más utilizado en redes de alta velocidad (como Cat6A) porque elimina muy bien la interferencia interna.</p>
+            </div>
+            <div class="card">
+              <h4>S/FTP o F/FTP <small>(antiguo SFTP)</small></h4>
+              <p>Par trenzado <strong>totalmente blindado</strong>. Doble protección: blindaje individual en cada par (lámina de aluminio) y blindaje global exterior (malla de cobre trenzada en el S/FTP o lámina en el F/FTP). Es más rígido y costoso; reservado para entornos industriales o categorías de alto rendimiento como Cat7 y Cat8.</p>
+            </div>
+          </div>
+
+          <h4>Categorías y clases</h4>
+          <ul>
+            <li><strong>Categorías:</strong> surgen de la necesidad de los fabricantes de tener productos compatibles entre marcas.</li>
+            <li>La <strong>EIA</strong> (Alianza de Industrias Electrónicas) y la <strong>TIA</strong> (Asociación de la Industria de Telecomunicaciones) desarrollaron estándares que establecen las categorías de par trenzado y determinan la calidad del cable, permitiendo seleccionar el adecuado para cada situación.</li>
+            <li>En la actualidad existen diferentes categorías (de la 1 a la 10).</li>
+            <li><strong>Clases:</strong> el equivalente a las categorías pero de las normas <strong>ISO</strong>. Especifican las distancias máximas permitidas en un enlace (componentes pasivos: conectores, cable, rosetas, patch panel) y el ancho de banda permitido (en Hz). A mayor ancho de banda, el cable tiene más capacidad para enviar información al disponer de más frecuencias. Las clases son A, B, C, D, E y F.</li>
+          </ul>
+          <p>Cada clase está diseñada para soportar ciertas tecnologías. Por ejemplo, la <strong>Clase A</strong> se pensó para telefonía básica, mientras que la <strong>Clase D</strong> se diseñó para redes locales de datos de alta velocidad (Fast Ethernet a 100 Mbps o incluso Gigabit Ethernet a 1000 Mbps en distancias cortas). Las clases más altas (como la F) exigen componentes con mejor blindaje y trenzado para resistir interferencias a frecuencias elevadas.</p>
+          <div class="nota">
+            <span class="caja-titulo">Ejemplo: Clase D</span>
+            <p>El ancho de banda de 100 MHz permite que las señales eléctricas oscilen hasta 100 millones de veces por segundo de extremo a extremo sin que la información se corrompa (los 1 y los 0 siguen siendo 1 y 0 cuando llegan al receptor). Con ese ancho de banda, los ingenieros han diseñado protocolos que permiten transmitir hasta 10 gigabits de datos por segundo.</p>
+          </div>
+
+          <div class="tabla-scroll">
+            <table>
+              <caption>Longitud máxima según categoría UTP y clase</caption>
+              <thead>
+                <tr><th>Clase →</th><th>Clase A</th><th>Clase B</th><th>Clase C</th><th>Clase D</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Ancho de banda</th><td>100 kHz</td><td>1 MHz</td><td>16 MHz</td><td>100 MHz</td></tr>
+                <tr><th scope="row">Categoría 3</th><td>2 km</td><td>500 m</td><td>100 m</td><td>no existe</td></tr>
+                <tr><th scope="row">Categoría 4</th><td>3 km</td><td>600 m</td><td>150 m</td><td>no existe</td></tr>
+                <tr><th scope="row">Categoría 5</th><td>3 km</td><td>700 m</td><td>160 m</td><td>100 m</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="actividad">
+            <summary>Actividades: categorías y clases</summary>
+            <div class="actividad-cuerpo">
+              <ul>
+                <li>Consultando la tabla anterior: ¿qué longitud máxima tendría un cable UTP de categoría 4 con un ancho de banda de 16 MHz? ¿De qué clase sería dicho cable?</li>
+                <li>Investiga cuál es el alcance máximo y la velocidad máxima de un cable de categoría 6. ¿Y de categoría 7?</li>
+              </ul>
+            </div>
+          </details>
+
+          <h4>Conectores</h4>
+          <div class="split">
+            <div>
+              <p>Los conectores más usados en el cable de par trenzado son el <strong>RJ11</strong> (telefonía, 6 hilos) y el <strong>RJ45</strong> (8 hilos).</p>
+            </div>
+            <div class="fig-row duo" style="margin:0">
+              <figure><img src="img/a-s17-1.jpg" alt="Dos conectores RJ11 de telefonía" width="640" height="480"><figcaption>RJ11</figcaption></figure>
+              <figure><img src="img/a-s17-2.jpg" alt="Dos conectores RJ45 de red" width="442" height="332"><figcaption>RJ45</figcaption></figure>
+            </div>
+          </div>
+
+          <h3 id="coaxial">Cable coaxial</h3>
+          <div class="split wide">
+            <div>
+              <ul>
+                <li>Constituido por <strong>dos conductores</strong>: uno sólido en el centro y la malla u hoja exterior, que además sirve como blindaje frente al ruido. Entre ambos hay un material <strong>dieléctrico</strong>.</li>
+                <li>El recubrimiento plástico externo lo aísla frente a contactos eléctricos y humedad, además de darle gran fortaleza.</li>
+                <li>Permite transportar rangos de frecuencia más altos (mayor ancho de banda) que el par trenzado. Puede transportar hasta 100 canales de TV o miles de canales de voz y de datos de baja velocidad.</li>
+                <li>Menor atenuación con la distancia.</li>
+                <li>Conectores <strong>BNC</strong>.</li>
+              </ul>
+            </div>
+            <div>
+              <figure><img src="img/a-s18-1.gif" alt="Partes de un cable coaxial: conductor externo, conductor interno, dieléctrico y capa protectora" width="345" height="116"></figure>
+              <figure><img src="img/a-s18-2.jpg" alt="Conectores BNC en los extremos de un cable coaxial" width="275" height="183"><figcaption>Conectores BNC</figcaption></figure>
+            </div>
+          </div>
+
+          <h3 id="fibra">Fibra óptica</h3>
+          <div class="split wide">
+            <div>
+              <p>Soporte físico de plástico o cristal que permite el transporte de <strong>señales ópticas</strong>. Una cubierta protege la fibra de roturas ante golpes y la apantalla para evitar la influencia de otras fuentes luminosas.</p>
+              <p><a href="https://www.youtube.com/watch?v=zZ7ay-j6ZQQ" rel="noopener">▶ Vídeo sobre la fibra óptica</a></p>
+            </div>
+            <figure><img src="img/a-s19-1.jpg" alt="Esquema de la propagación de la luz por reflexión interna total en el interior de una fibra óptica" width="629" height="243"></figure>
+          </div>
+
+          <div class="cards">
+            <div class="card verde">
+              <h4>Ventajas</h4>
+              <ul>
+                <li>No se ve afectada por campos electromagnéticos externos.</li>
+                <li>Gran ancho de banda: velocidades de transmisión elevadas.</li>
+                <li>Baja atenuación con la distancia.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Inconvenientes</h4>
+              <ul><li>Elevado coste de la fibra y del equipamiento.</li></ul>
+            </div>
+          </div>
+
+          <h4>Tipos de fibra</h4>
+          <div class="cards">
+            <div class="card">
+              <h4>Monomodo</h4>
+              <ul>
+                <li>Solo se propaga un haz de luz.</li>
+                <li>Grandes distancias (hasta 400 km).</li>
+                <li>Utiliza un láser de alta intensidad.</li>
+                <li>Elevadas tasas de información (decenas de Gbps).</li>
+                <li>Núcleo muy estrecho (≈ 9 micrómetros).</li>
+                <li>Sin rebotes en las paredes: no hay dispersión modal.</li>
+                <li><strong>OS1:</strong> instalaciones de interior y/o cortas distancias.</li>
+                <li><strong>OS2:</strong> tendidos exteriores y grandes distancias.</li>
+                <li><strong>Usos:</strong> WAN, MAN, CAN.</li>
+              </ul>
+            </div>
+            <div class="card verde">
+              <h4>Multimodo</h4>
+              <ul>
+                <li>Diferentes haces de luz se propagan por diferentes caminos.</li>
+                <li>Una única fibra permite conducir varias conexiones.</li>
+                <li>Distancias menores de 2 km por la dispersión modal.</li>
+                <li>Simple y económico.</li>
+                <li><strong>OM1 y OM2:</strong> obsoletos en nuevas instalaciones.</li>
+                <li><strong>OM3:</strong> hasta 10GbE a 300 m y 100GbE a 100 m.</li>
+                <li><strong>OM4:</strong> cristal más puro; hasta 10GbE a 550 m y 100GbE a 150 m.</li>
+                <li><strong>OM5:</strong> admite 4 longitudes de onda (señales) por el mismo hilo (como los canales de Wi-Fi).</li>
+                <li><strong>Usos:</strong> LAN, racks, enlaces dentro de data centers.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Conectores de fibra</h4>
+          <div class="fig-row">
+            <figure><img src="img/a-s23-1.jpg" alt="Tipos de conectores de fibra óptica: FC, FDDI, ST, LC, MT-Array, SC-Duplex y SC" width="650" height="336"></figure>
+            <figure><img src="img/a-s23-2.jpg" alt="Latiguillos de fibra óptica de colores con distintos conectores" width="400" height="294"></figure>
+          </div>
+          <details class="actividad">
+            <summary>Actividades: conectores y usos de la fibra</summary>
+            <div class="actividad-cuerpo">
+              <ul>
+                <li>Investiga cuál es el conector habitual en las instalaciones de fibra óptica en las casas.</li>
+                <li>Investiga otros usos de la fibra óptica.</li>
+              </ul>
+            </div>
+          </details>
+
+          <h4>Emisores del haz de luz</h4>
+          <p>Dispositivos que convierten la señal eléctrica en luminosa.</p>
+          <div class="cards">
+            <div class="card verde">
+              <h4>Emisor LED</h4>
+              <ul>
+                <li>Lentos: se usan en fibras multimodo.</li>
+                <li>Fácil uso, durabilidad y económicos.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Emisor láser</h4>
+              <ul>
+                <li>Muy rápidos: se usan en ambos tipos de fibra.</li>
+                <li>Uso complicado, menor tiempo de vida y más caros.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 id="fibra-clientes">Fibra óptica para clientes finales</h3>
+          <h4>Fibra y conectores</h4>
+          <ul>
+            <li><strong>Fibra:</strong> monomodo bajo la norma <strong>ITU-T G.657</strong> o fibra insensible a la curvatura. A diferencia de la fibra monomodo estándar de exterior (G.652), admite radios de curvatura muy cerrados sin atenuaciones severas ni roturas, lo que permite guiar la fibra por las esquinas de las paredes, rodapiés o cajas de registro de las viviendas.</li>
+            <li><strong>Conector SC:</strong> en la roseta óptica o PTR y en la entrada del router.</li>
+            <li><strong>Conector LC:</strong> en instalaciones comerciales o con módulos SFP+ (transceptor de señal eléctrica a óptica para switches, routers y tarjetas de red).</li>
+          </ul>
+          <h4>Pulidos</h4>
+          <div class="cards">
+            <div class="card verde">
+              <h4>SC/APC <span class="etiqueta verde">verde</span></h4>
+              <p>En redes <strong>FTTH</strong> (Fiber to the Home) y <strong>GPON</strong> (Gigabit Passive Optical Network), las que usan los ISP para llevar la fibra a casa del cliente.</p>
+              <ul>
+                <li>Mínima reflexión hacia la central, evita interferencias.</li>
+                <li>Necesita una alineación estricta. Incompatibilidad directa con UPC.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>SC/UPC <span class="etiqueta">azul</span></h4>
+              <p>Estándar en redes <strong>LAN</strong> y latiguillos de uso general.</p>
+              <ul>
+                <li>Menor pérdida de inserción.</li>
+                <li>Mayor reflexión hacia la red central, por lo que no se usa en la red de los operadores.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 id="lan-mixta">Elementos de una LAN mixta</h3>
+          <figure>
+            <img src="img/a-s27-1.png" alt="Esquema de una LAN mixta: OLT, fibra y splitter óptico, ONT, router, switch o punto Wi-Fi y ordenador, con las tecnologías de cada etapa" width="1400" height="1184" style="max-width:min(100%, 640px)">
+            <figcaption>Del operador al ordenador: red óptica (fibra) y red local (cobre y Wi-Fi).</figcaption>
+          </figure>
+          <ol class="pasos">
+            <li><strong>OLT (central del operador).</strong> Extremo activo de la red GPON, definida en ITU-T G.984. Emite hacia los clientes a 2,5 Gbps de bajada y recibe a 1,25 Gbps de subida. En la bajada usa multiplexación por tiempo (TDM): la OLT emite todo el tráfico y cada ONT se queda con lo suyo. En la subida usa TDMA: la OLT asigna turnos de transmisión a cada ONT para que no se pisen.</li>
+            <li><strong>Fibra y splitter óptico.</strong> Una sola fibra monomodo (G.652) sirve a varios abonados, normalmente entre 32 y 64. Viaja en ambos sentidos con longitudes de onda distintas: 1490 nm de bajada, 1310 nm de subida y 1550 nm para TV por RF si el operador la usa. El splitter es <em>pasivo</em>: reparte la luz sin electricidad, y por eso se llama red PON (Passive Optical Network).</li>
+            <li><strong>ONT (terminal óptico en tu casa).</strong> Convierte la señal luminosa en eléctrica y entrega Ethernet por un puerto RJ-45. Dentro de la red GPON se utilizan tres elementos:
+              <ul>
+                <li><strong>GEM</strong> (GPON Encapsulation Method), que encapsula los datos.</li>
+                <li><strong>OMCI</strong>, que permite al operador gestionar la ONT en remoto.</li>
+                <li><strong>Cifrado AES</strong> en la bajada, porque todas las ONT del splitter reciben la misma señal.</li>
+              </ul>
+            </li>
+            <li><strong>Router (puerta de enlace).</strong> Une la red del operador con tu red local:
+              <ul>
+                <li><strong>Lado WAN:</strong> obtiene su IP pública por PPPoE o IPoE (DHCP), dentro de la VLAN 802.1Q que exija el operador.</li>
+                <li><strong>Lado LAN:</strong> actúa como servidor DHCP (reparte IPs privadas), como DNS local o reenviador, como firewall y hace NAT para que todos tus equipos compartan la IP pública.</li>
+              </ul>
+              <p>Muchos operadores integran ONT y router en un solo aparato, pero conceptualmente son dos etapas.</p>
+            </li>
+            <li><strong>Switch o punto Wi-Fi.</strong> Es la red local propiamente dicha. Por cable usa Ethernet IEEE 802.3 (1000BASE-T = 1 Gbps sobre cobre cat5e/6). Por aire, Wi-Fi 802.11ax (Wi-Fi 6) en 2,4 y 5 GHz. El switch reenvía tramas según la dirección MAC, sin mirar IPs.</li>
+            <li><strong>Ordenador.</strong> Su tarjeta de red recibe una IP privada por DHCP (por ejemplo 192.168.1.x), usa ARP para averiguar la MAC del router y envía todo lo que sale de la red local a esa puerta de enlace. Encima corre la pila TCP/IP con la que funcionan las aplicaciones.</li>
+          </ol>
+
+          <h3 id="comparativa">Comparativa de medios guiados</h3>
+          <details class="actividad" open>
+            <summary>Actividad: completa la tabla comparativa</summary>
+            <div class="actividad-cuerpo">
+              <p>Investiga y completa la siguiente tabla comparativa de medios de transmisión guiados.</p>
+              <div class="tabla-scroll">
+                <table class="rellenar">
+                  <thead><tr><th>Medio de transmisión</th><th>Pros</th><th>Contras</th><th>Conectores</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Par trenzado</th><td></td><td></td><td></td></tr>
+                    <tr><th scope="row">Cable coaxial</th><td></td><td></td><td></td></tr>
+                    <tr><th scope="row">Fibra óptica</th><td></td><td></td><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </section>
+        <p class="arriba"><a href="#contenido">↑ Volver arriba</a></p>
+
+        <!-- ====================== 3. NO GUIADOS ====================== -->
+        <section id="no-guiados">
+          <h2><span class="num">3</span> Medios de transmisión no guiados o inalámbricos</h2>
+          <p>Un emisor radia energía electromagnética que se transmite por <strong>ondas electromagnéticas</strong> a través del aire hasta ser recibida por un receptor. Las ondas se transmiten de diferente manera en función de la frecuencia. Según la frecuencia utilizada se consideran 4 tecnologías:</p>
+          <div class="cards dos">
+            <div class="card"><h4>Ondas de radio</h4></div>
+            <div class="card"><h4>Microondas</h4></div>
+            <div class="card"><h4>Infrarrojos</h4></div>
+            <div class="card"><h4>Láser</h4></div>
+          </div>
+
+          <h3 id="tipos-tx">Tipos de transmisión y forma de propagación</h3>
+          <div class="cards">
+            <div class="card">
+              <h4>Direccional</h4>
+              <p>Toda la energía se concentra en un haz en una dirección concreta: emisor y receptor alineados, enlace punto a punto. Se usa con altas frecuencias (microondas o láser).</p>
+            </div>
+            <div class="card verde">
+              <h4>Omnidireccional</h4>
+              <p>La energía se radia en todas las direcciones y puede llegar a varios receptores en distintas posiciones. Se usa con bajas frecuencias (radio).</p>
+            </div>
+          </div>
+          <div class="tabla-scroll">
+            <table>
+              <caption>Propagación según la frecuencia</caption>
+              <thead><tr><th>Frecuencia</th><th>Propagación</th></tr></thead>
+              <tbody>
+                <tr><td>f &lt; 2 MHz</td><td>Viajan por la superficie de la Tierra.</td></tr>
+                <tr><td>2 MHz &lt; f &lt; 30 MHz</td><td>La onda rebota en la ionosfera → mayor distancia.</td></tr>
+                <tr><td>f &gt; 30 MHz</td><td>Es necesaria visión directa entre emisor y receptor.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="bandas">Bandas de radiofrecuencia</h3>
+          <div class="tabla-scroll">
+            <table>
+              <thead><tr><th>Banda</th><th>Rango</th><th>Propagación</th><th>Aplicación</th></tr></thead>
+              <tbody>
+                <tr><td>VLF (Very Low Frequency)</td><td>3–30 kHz</td><td>Tierra</td><td>Navegación radio de largo alcance</td></tr>
+                <tr><td>LF (Low Frequency)</td><td>30–300 kHz</td><td>Tierra</td><td>Radiobalizas y localización de navegación</td></tr>
+                <tr><td>MF (Middle Frequency)</td><td>300 kHz–3 MHz</td><td>Cielo</td><td>Radio AM</td></tr>
+                <tr><td>HF (High Frequency)</td><td>3–30 MHz</td><td>Cielo</td><td>Banda ciudadana (CB), comunicaciones con aviones y barcos</td></tr>
+                <tr><td>VHF (Very High Frequency)</td><td>30–300 MHz</td><td>Cielo y línea de vista</td><td>TV y radio VHF</td></tr>
+                <tr><td>UHF (Ultra High Frequency)</td><td>300 MHz–3 GHz</td><td>Línea de vista</td><td>TV UHF, teléfonos móviles, mensajería y satélite</td></tr>
+                <tr><td>SHF (Super High Frequency)</td><td>3–30 GHz</td><td>Línea de vista</td><td>Comunicación vía satélite</td></tr>
+                <tr><td>EHF (Extremely High Frequency)</td><td>30–300 GHz</td><td>Línea de vista</td><td>Radar, satélite</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="tecnologias">Ondas de radio, microondas, infrarrojos y láser</h3>
+          <div class="cards dos">
+            <div class="card">
+              <h4>Ondas de radio</h4>
+              <ul>
+                <li>Suelen estar entre 10 kHz y 1 GHz.</li>
+                <li>Banda compartida con otras aplicaciones (TV, telefonía, radio, difusión…).</li>
+              </ul>
+            </div>
+            <div class="card verde">
+              <h4>Microondas</h4>
+              <ul>
+                <li>Entre 1 y 300 GHz.</li>
+                <li>Unidireccionales: necesitan muy buena alineación.</li>
+                <li>Si la distancia es muy grande, las antenas deben ser muy altas por la curvatura de la Tierra.</li>
+                <li>No penetran las paredes.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Infrarrojos</h4>
+              <ul>
+                <li>Entre 200 GHz y 400 THz.</li>
+                <li>Para comunicaciones de corto alcance.</li>
+                <li>Direccional.</li>
+              </ul>
+            </div>
+            <div class="card verde">
+              <h4>Láser</h4>
+              <ul>
+                <li>Similar al infrarrojo.</li>
+                <li>Elevado coste.</li>
+              </ul>
+            </div>
+          </div>
+          <details class="actividad">
+            <summary>Actividad: tecnologías inalámbricas</summary>
+            <div class="actividad-cuerpo">
+              <p>¿Qué tecnología inalámbrica usan las redes con el estándar IEEE 802.11? ¿Y el mando a distancia de la TV? Busca ejemplos de cada tecnología.</p>
+            </div>
+          </details>
+
+          <h3 id="apps-wifi">Apps y recursos para medir señales Wi-Fi</h3>
+          <ul class="recursos">
+            <li><a href="https://www.dnsstuff.com/wi-fi-heat-maps" rel="noopener">Mapas de calor Wi-Fi (DNSstuff)</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=abdelrahman.wifianalyzerpro&amp;hl=es&amp;gl=US" rel="noopener">Wi-Fi Analyzer Pro (Google Play)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=6ADqAX-heFY" rel="noopener">Vídeo: cómo medir la señal Wi-Fi (YouTube)</a></li>
+            <li><a href="https://wigle.net/" rel="noopener">WiGLE: mapa mundial de redes Wi-Fi</a></li>
+          </ul>
+        </section>
+
+        <nav class="pager" aria-label="Navegación entre unidades">
+          <a href="index.html">← Inicio</a>
+          <a href="ud2-cableado-estructurado.html">Siguiente: Cableado estructurado →</a>
+        </nav>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="f-brand">
+        <img src="img/logo.png" alt="" width="44" height="44">
+        <p><strong>Departamento de Informática</strong><br>IES San Alberto Magno</p>
+      </div>
+      <p>Redes Locales · CFGM SMR · Curso 2026-27</p>
+    </div>
+  </footer>
+</body>
+</html>
