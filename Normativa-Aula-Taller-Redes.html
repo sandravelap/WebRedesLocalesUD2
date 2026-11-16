@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOR-RED-01 · Normativa de Identificación y Etiquetado del Aula-Taller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f2f4f6;
+    --surface:#ffffff;
+    --ink:#0f2233;
+    --ink-soft:#546472;
+    --line:#d7dee3;
+    --line-strong:#aebbc4;
+    --navy:#0f2233;
+    --blue:#2d6cdf;
+    --red:#df4b4f;
+    --amber:#e69a2e;
+    --green:#2f9e58;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Title block (engineering drawing style) ---------- */
+  .titleblock{
+    max-width:1180px;
+    margin:28px auto 0;
+    padding:0 24px;
+  }
+  .titleblock-frame{
+    border:1.5px solid var(--ink);
+    background:var(--surface);
+    position:relative;
+  }
+  .titleblock-frame::before,
+  .titleblock-frame::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    border:1.5px solid var(--ink);
+  }
+  .titleblock-frame::before{ top:-1.5px; left:-1.5px; border-right:none; border-bottom:none; }
+  .titleblock-frame::after{ bottom:-1.5px; right:-1.5px; border-left:none; border-top:none; }
+
+  .tb-top{
+    padding:32px 36px 24px;
+    border-bottom:1.5px solid var(--ink);
+  }
+  .tb-eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+  .tb-title{
+    font-size:clamp(26px, 4vw, 38px);
+    line-height:1.15;
+    margin:0;
+    font-weight:700;
+    color:var(--navy);
+    max-width:20ch;
+  }
+
+  .tb-fields{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+  }
+  .tb-field{
+    padding:16px 20px;
+    border-right:1px solid var(--line);
+  }
+  .tb-field:last-child{ border-right:none; }
+  .tb-field-label{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  .tb-field-value{
+    font-family:var(--mono);
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    margin:0;
+  }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    max-width:1180px;
+    margin:0 auto;
+    padding:40px 24px 100px;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:56px;
+  }
+
+  nav.toc{
+    position:sticky;
+    top:28px;
+    align-self:start;
+    padding-left:2px;
+  }
+  .toc-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .toc ol{
+    list-style:none;
+    margin:0;
+    padding:0;
+    border-left:1px solid var(--line);
+  }
+  .toc li{ margin:0; }
+  .toc a{
+    display:block;
+    padding:8px 0 8px 16px;
+    margin-left:-1px;
+    border-left:2px solid transparent;
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:14px;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .toc a:hover{ color:var(--ink); border-left-color:var(--line-strong); }
+  .toc a.active{ color:var(--navy); border-left-color:var(--blue); font-weight:600; }
+
+  main{ min-width:0; }
+
+  section{
+    scroll-margin-top:24px;
+    padding-bottom:44px;
+    margin-bottom:44px;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-child{ border-bottom:none; }
+
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .sec-num{
+    font-family:var(--mono);
+    font-size:14px;
+    color:var(--blue);
+    font-weight:600;
+  }
+  h2{
+    font-size:22px;
+    margin:0;
+    color:var(--navy);
+    font-weight:700;
+  }
+  h3{
+    font-size:16px;
+    color:var(--navy);
+    margin:28px 0 12px;
+    font-weight:600;
+  }
+  p{ margin:0 0 14px; color:var(--ink); max-width:70ch; }
+  p.lede{ color:var(--ink-soft); }
+
+  strong{ color:var(--navy); }
+  code, .code{
+    font-family:var(--mono);
+    background:#e8edf1;
+    border:1px solid var(--line);
+    padding:1px 6px;
+    border-radius:3px;
+    font-size:.92em;
+  }
+
+  .schema{
+    font-family:var(--mono);
+    font-size:15px;
+    background:var(--navy);
+    color:#eaf1f7;
+    padding:16px 18px;
+    border-radius:4px;
+    overflow-x:auto;
+    margin:16px 0 22px;
+  }
+  .schema .sep{ color:#5f7c96; }
+
+  ul.field-list{
+    list-style:none;
+    margin:0 0 8px;
+    padding:0;
+    display:grid;
+    gap:10px;
+  }
+  ul.field-list > li{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:14px;
+    align-items:start;
+    padding:10px 0;
+    border-top:1px solid var(--line);
+  }
+  ul.field-list > li:first-child{ border-top:none; }
+  .field-tag{
+    font-family:var(--mono);
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  ul.subfield{
+    list-style:none;
+    margin:6px 0 0;
+    padding:0;
+    display:grid;
+    gap:6px;
+  }
+  ul.subfield li{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    padding-left:14px;
+    position:relative;
+  }
+  ul.subfield li::before{
+    content:"–";
+    position:absolute;
+    left:0;
+    color:var(--line-strong);
+  }
+  ul.subfield code{ color:var(--ink); }
+
+  .ra-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:14px;
+  }
+  .ra-item{
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:14px 16px;
+  }
+  .ra-item-head{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--navy);
+    margin:0 0 4px;
+  }
+  .ra-item-body{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .ce-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:5px;
+  }
+  .ce-list li{
+    font-size:13.5px;
+    color:var(--ink);
+    padding-left:0;
+  }
+  .ce-list .ce-code{
+    font-family:var(--mono);
+    color:var(--blue);
+    font-weight:600;
+    margin-right:6px;
+  }
+
+  /* Table */
+  .table-wrap{
+    overflow-x:auto;
+    border:1px solid var(--line);
+  }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:760px;
+    background:var(--surface);
+  }
+  thead th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    background:#e8edf1;
+    padding:12px 14px;
+    border-bottom:1.5px solid var(--ink);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:14px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+    vertical-align:top;
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  td.elem{ font-weight:600; color:var(--navy); white-space:nowrap; }
+  td.fmt, td.ejemplo{ font-family:var(--mono); font-size:13px; white-space:nowrap; }
+  td.ejemplo{ color:var(--blue); font-weight:600; }
+
+  /* Specs grid */
+  .spec-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .spec-card{
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:16px;
+  }
+  .spec-card-label{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .spec-card p{ font-size:14px; margin:0; }
+
+  /* Color legend */
+  .color-legend{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+    margin-top:6px;
+  }
+  .color-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:14px 16px;
+  }
+  .swatch{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    margin-top:3px;
+    flex:none;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+  }
+  .swatch.blue{ background:var(--blue); }
+  .swatch.red{ background:var(--red); }
+  .swatch.amber{ background:var(--amber); }
+  .swatch.green{ background:var(--green); }
+  .color-item-title{ font-weight:600; font-size:14.5px; color:var(--navy); margin:0 0 3px; }
+  .color-item p{ font-size:13.5px; margin:0; color:var(--ink-soft); }
+
+  /* Verification steps */
+  .steps{
+    counter-reset:step;
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:0;
+  }
+  .steps li{
+    counter-increment:step;
+    display:grid;
+    grid-template-columns:40px 1fr;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .steps li:first-child{ border-top:none; }
+  .steps li::before{
+    content:counter(step);
+    font-family:var(--mono);
+    font-weight:600;
+    color:var(--blue);
+    font-size:15px;
+  }
+  .steps h4{ margin:0 0 4px; font-size:14.5px; color:var(--navy); }
+  .steps p{ margin:0; font-size:14px; }
+
+  footer{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 24px 40px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-family:var(--mono);
+  }
+
+  @media (max-width: 860px){
+    .tb-fields{ grid-template-columns:repeat(2, 1fr); }
+    .tb-field:nth-child(2){ border-right:none; }
+    .tb-field{ border-bottom:1px solid var(--line); }
+    .layout{ grid-template-columns:1fr; gap:24px; }
+    nav.toc{ position:static; }
+    .toc ol{ display:flex; flex-wrap:wrap; border-left:none; gap:4px 0; }
+    .toc li a{ border-left:none; border-bottom:2px solid transparent; padding:6px 12px 6px 0; margin-right:10px; }
+    .toc li a.active{ border-bottom-color:var(--blue); }
+    .spec-grid{ grid-template-columns:1fr; }
+    .color-legend{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="titleblock">
+    <div class="titleblock-frame">
+      <div class="tb-top">
+        <p class="tb-eyebrow">IES San Alberto Magno · Sabiñánigo — Departamento de Informática</p>
+        <h1 class="tb-title">Normativa de Identificación y Etiquetado del Aula-Taller de Redes Locales</h1>
+      </div>
+      <div class="tb-fields">
+        <div class="tb-field">
+          <p class="tb-field-label">Código de documento</p>
+          <p class="tb-field-value">NOR-RED-01</p>
+        </div>
+        <div class="tb-field">
+          <p class="tb-field-label">Módulo profesional</p>
+          <p class="tb-field-value">0225 · Redes Locales</p>
+        </div>
+        <div class="tb-field">
+          <p class="tb-field-label">Ciclo formativo</p>
+          <p class="tb-field-value">Téc. en Sistemas Microinformáticos y Redes</p>
+        </div>
+        <div class="tb-field">
+          <p class="tb-field-label">Estándar de referencia</p>
+          <p class="tb-field-value">ANSI/TIA-606-C · ISO/IEC 14763-1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice de secciones">
+      <p class="toc-label">Índice</p>
+      <ol id="toc-list">
+        <li><a href="#objeto">1. Objeto y alcance</a></li>
+        <li><a href="#curricular">2. Ref. curricular</a></li>
+        <li><a href="#estructura">3. Codificación</a></li>
+        <li><a href="#tabla">4. Nomenclatura</a></li>
+        <li><a href="#materiales">5. Materiales y color</a></li>
+        <li><a href="#auditoria">6. Verificación</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <section id="objeto">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Objeto y alcance</h2></div>
+        <p>La presente normativa establece el estándar de identificación, codificación y etiquetado físico para todos los elementos de infraestructura de red local del Aula-Taller de Redes: cableado estructurado, espacios, armarios rack, paneles de parcheo, tomas de usuario y equipamiento de conmutación.</p>
+        <p>Esta norma es de <strong>obligado cumplimiento</strong> para la organización del aula, el mantenimiento de las instalaciones y el desarrollo de las actividades prácticas del módulo de <strong>Redes Locales</strong>.</p>
+      </section>
+
+      <section id="curricular">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Referencia curricular y objetivos formativos</h2></div>
+        <p class="lede">Esta normativa se encuadra en la Unidad Formativa <strong>UF0225_13: Redes de área local. Niveles físicos</strong> y responde directamente a los siguientes resultados de aprendizaje y criterios de evaluación:</p>
+        <ul class="ra-list">
+          <li class="ra-item">
+            <p class="ra-item-head">RA2 — Despliega el cableado de una red local</p>
+            <p class="ra-item-body">Interpretando especificaciones y aplicando técnicas de montaje.</p>
+            <ul class="ce-list">
+              <li><span class="ce-code">CE 2.i</span>Se han etiquetado los cables y tomas de usuario.</li>
+              <li><span class="ce-code">CE 2.h</span>Se han probado las líneas de comunicación entre las tomas de usuario y paneles de parcheo.</li>
+              <li><span class="ce-code">CE 2.j</span>Se ha trabajado con la calidad y seguridad requeridas.</li>
+            </ul>
+          </li>
+          <li class="ra-item">
+            <p class="ra-item-head">RA3 — Interconecta equipos en redes locales cableadas</p>
+            <p class="ra-item-body">Describiendo estándares de cableado y aplicando técnicas de montaje de conectores.</p>
+            <ul class="ce-list">
+              <li><span class="ce-code">CE 3.g</span>Se ha trabajado con la calidad requerida.</li>
+            </ul>
+          </li>
+          <li class="ra-item">
+            <p class="ra-item-head">RA6 — Cumple las normas de prevención de riesgos laborales y ambiental</p>
+            <p class="ra-item-body">Identificando los riesgos asociados, las medidas y equipos para prevenirlos.</p>
+            <ul class="ce-list">
+              <li><span class="ce-code">CE 6.b</span>Se han operado las máquinas respetando las normas de seguridad.</li>
+              <li><span class="ce-code">CE 6.h</span>Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="estructura">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Estructura general de codificación</h2></div>
+        <p>La codificación sigue el esquema de jerarquía espacial y funcional:</p>
+        <div class="schema">[AULA]<span class="sep"> – </span>[UBICACIÓN/RACK]<span class="sep"> – </span>[PANEL/EQUIPO]<span class="sep"> – </span>[PUERTO/TOMA]</div>
+
+        <h3>Leyenda de campos</h3>
+        <ul class="field-list">
+          <li>
+            <span class="field-tag">AULA</span>
+            <div>Identificador de la estancia. Ejemplo: <code>A204</code>.</div>
+          </li>
+          <li>
+            <span class="field-tag">UBICACIÓN / RACK</span>
+            <ul class="subfield">
+              <li><code>R01, R02…</code> para armarios de comunicaciones (racks).</li>
+              <li><code>M01, M02…</code> para mesas o puestos de alumnos.</li>
+            </ul>
+          </li>
+          <li>
+            <span class="field-tag">PANEL / EQUIPO</span>
+            <ul class="subfield">
+              <li><code>PP1, PP2</code> para paneles de parcheo (patch panels).</li>
+              <li><code>SW1, SW2</code> para conmutadores (switches).</li>
+              <li><code>RT1</code> para encaminadores (routers).</li>
+            </ul>
+          </li>
+          <li>
+            <span class="field-tag">PUERTO / TOMA</span>
+            <div>Número de puerto o toma individual, a dos dígitos: <code>01, 02… 24</code>.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="tabla">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Tabla de nomenclatura y ejemplos de etiquetado</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Ubicación de la etiqueta</th>
+                <th>Formato</th>
+                <th>Ejemplo</th>
+                <th>Descripción / regla</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="elem">Armario rack</td>
+                <td>Parte superior frontal y trasera del bastidor.</td>
+                <td class="fmt">R[Nº]</td>
+                <td class="ejemplo">R01</td>
+                <td>Identifica el armario de telecomunicaciones del aula.</td>
+              </tr>
+              <tr>
+                <td class="elem">Panel de parcheo</td>
+                <td>Extremo superior izquierdo del frontal del panel.</td>
+                <td class="fmt">PP[Nº]</td>
+                <td class="ejemplo">R01-PP1</td>
+                <td>Panel 1 ubicado en el Rack 01.</td>
+              </tr>
+              <tr>
+                <td class="elem">Tomas de usuario (TO / roseta)</td>
+                <td>Carcasa de la toma RJ-45 en el puesto de trabajo.</td>
+                <td class="fmt">[RACK]-[PANEL]-[PUERTO]</td>
+                <td class="ejemplo">R01-PP1-08</td>
+                <td>Conectada al puerto 08 del Patch Panel 1 en el Rack 01.</td>
+              </tr>
+              <tr>
+                <td class="elem">Cable horizontal (par trenzado)</td>
+                <td>Ambos extremos del cable, a 5 cm del conector RJ-45.</td>
+                <td class="fmt">[ORIGEN] / [DESTINO]</td>
+                <td class="ejemplo">R01-PP1-08 / M04-TO1</td>
+                <td>Permite identificar el enlace permanente sin ambigüedad.</td>
+              </tr>
+              <tr>
+                <td class="elem">Latiguillos (patch cords)</td>
+                <td>Ambos extremos del latiguillo flexible.</td>
+                <td class="fmt">[EQUIPO-PUERTO]</td>
+                <td class="ejemplo">SW1-P05</td>
+                <td>Latiguillo conectado al puerto 5 del Switch 1.</td>
+              </tr>
+              <tr>
+                <td class="elem">Puesto de alumno (PC)</td>
+                <td>Frontal de la torre o chasis del equipo.</td>
+                <td class="fmt">PC-[MESA]-[Nº]</td>
+                <td class="ejemplo">PC-M04-01</td>
+                <td>Ordenador 1 situado en la Mesa de trabajo 04.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="materiales">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Especificaciones materiales y código de colores</h2></div>
+
+        <h3>5.1 Especificaciones de las etiquetas</h3>
+        <div class="spec-grid">
+          <div class="spec-card">
+            <p class="spec-card-label">Material</p>
+            <p>Vinilo autoadhesivo laminado o tubos termorretráctiles para cables, resistentes a la fricción y al calor.</p>
+          </div>
+          <div class="spec-card">
+            <p class="spec-card-label">Impresión</p>
+            <p>Transferencia térmica en negro sobre fondo blanco o amarillo de alta visibilidad. No se admite rotulación manual en instalaciones fijas.</p>
+          </div>
+          <div class="spec-card">
+            <p class="spec-card-label">Tamaño de letra</p>
+            <p>Legible a una distancia mínima de 50 cm (fuente sans-serif / Arial en negrita).</p>
+          </div>
+        </div>
+
+        <h3>5.2 Código de colores para latiguillos de parcheo</h3>
+        <p class="lede">Facilita el diagnóstico visual en las prácticas de interconexión:</p>
+        <div class="color-legend">
+          <div class="color-item">
+            <span class="swatch blue"></span>
+            <div>
+              <p class="color-item-title">Azul</p>
+              <p>Tráfico general de datos de red de aula (conexión estándar PC a toma).</p>
+            </div>
+          </div>
+          <div class="color-item">
+            <span class="swatch red"></span>
+            <div>
+              <p class="color-item-title">Rojo</p>
+              <p>Conexiones de infraestructura crítica: uplinks entre switches, enlaces a routers o salida a Internet.</p>
+            </div>
+          </div>
+          <div class="color-item">
+            <span class="swatch amber"></span>
+            <div>
+              <p class="color-item-title">Amarillo</p>
+              <p>Servidores de aula y servicios centralizados (DHCP, DNS, FTP, Web).</p>
+            </div>
+          </div>
+          <div class="color-item">
+            <span class="swatch green"></span>
+            <div>
+              <p class="color-item-title">Verde</p>
+              <p>Redes VLAN de prácticas del alumnado y segmentos aislados.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="auditoria">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Procedimiento de verificación y auditoría en el taller</h2></div>
+        <p class="lede">Al finalizar cada sesión práctica de tendido o confección de cableado estructurado:</p>
+        <ol class="steps">
+          <li>
+            <div>
+              <h4>Revisión física</h4>
+              <p>Comprobar que todos los latiguillos y conectores fabricados por el alumnado cuentan con sus correspondientes etiquetas identificativas en ambos extremos.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Comprobación eléctrica / lógica</h4>
+              <p>Verificar con el tester de red que la toma etiquetada (ej. <code>R01-PP1-12</code>) se corresponde exactamente con el puerto mapeado en el patch panel.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Orden y limpieza</h4>
+              <p>El espacio de trabajo debe quedar limpio y ordenado, y cada herramienta o material utilizado deberá volver a guardarse en su lugar asignado.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Informe de registro</h4>
+              <p>El alumno registrará el mapa físico de conexiones en la hoja de inventario del aula antes de dar por concluida la práctica.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <span>NOR-RED-01 · Aula-Taller de Redes Locales</span>
+    <span>IES San Alberto Magno — Sabiñánigo</span>
+  </footer>
+
+<script>
+  const links = document.querySelectorAll('.toc a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+  const setActive = () => {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(sec => { if (sec && sec.offsetTop <= y) current = sec; });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  window.addEventListener('load', setActive);
+</script>
+
+</body>
+</html>
